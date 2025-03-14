@@ -1,0 +1,4 @@
+products_name,products_description,products_price,category,supplier_name,barcode,quantity
+products demo name 1,products demo description 1,500,Demo Category 1,Demo Supplier 1,10001,10
+products demo name 2,products demo description 2,600,Demo Category 2,Demo Supplier 2,10002,20
+products demo name 3,products demo description 3,700,Demo Category 3,Demo Supplier 3,10003,30

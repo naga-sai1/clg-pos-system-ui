@@ -1,0 +1,4 @@
+products_name,products_description,products_price,category,supplier_name,barcode,quantity,unit,batch_number,manufacturing_date,expiry_date,qty_alert,brand,gst,shedule
+Nimesulide Tablets 100mg,,43.45,Pharmacy,,P131508,1000,10Strips,P131508,2023-12-10,2026-11-18,200,cipla,5,NICIP
+Metoprolo Succinate(ER)&Telmisartan Tablets(Telmikind Beta 25),,132,Pharmacy,,MKK5TFIANE1219700,30,10Strips,K55X024,2024-08-04,2026-01-01,10,Mankind Pharma LTD,12,API DMF GRADE
+Metformin Tablets I.P.500mg Glyciphage,,41.65,Pharmacy,,037BF1W002,500,Piece,60374100,2024-08-01,2027-07-01,100,Franco Indian Pharmaceuticals PVT LTD,18,3298-A
