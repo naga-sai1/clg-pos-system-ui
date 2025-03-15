@@ -124,11 +124,11 @@ export const sidebarData: SidebarData = {
             //   url: '/inventory-management/sub-category-list',
             //   icon: IconCategoryPlus,
             // },
-            {
-              title: 'Supplier',
-              url: '/inventory-management/suppliers',
-              icon: IconHeartHandshake,
-            },
+            // {
+            //   title: 'Supplier',
+            //   url: '/inventory-management/suppliers',
+            //   icon: IconHeartHandshake,
+            // },
             {
               title: 'Manufacturers',
               url: '/inventory-management/brand-list',

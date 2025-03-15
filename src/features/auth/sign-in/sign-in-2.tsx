@@ -38,8 +38,9 @@ export default function SignIn2() {
               Login
             </h1>
             <p className='text-sm text-orange-600'>
-              Enter your email and password below <br />
+              Enter your username and password below <br />
               to log into your account
+              <br />
             </p>
           </div>
           <UserAuthForm />
