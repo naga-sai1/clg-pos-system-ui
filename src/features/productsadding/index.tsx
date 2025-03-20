@@ -35,6 +35,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Popover,
   PopoverContent,
@@ -48,7 +49,6 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Textarea } from '@/components/ui/textarea'
 import BarcodeSearch from './components/barcode-search'
 import BulkProductUpload from './components/bulk-productupload'
 import { useBarcodeScanner } from './hooks/use-barcode-scanner'
@@ -133,7 +133,7 @@ const ProductAdding: React.FC = () => {
       qty_alert: 5,
       status: 'active',
       brand: '',
-      gst: '5', // Change from empty string to default value '5'
+      gst: '5',  // Change from empty string to default value '5'
       shedule: '',
     },
   })
@@ -217,7 +217,7 @@ const ProductAdding: React.FC = () => {
         qty_alert: 5,
         status: 'active',
         brand: '',
-        gst: '5', // Change from empty string to default value '5'
+        gst: '5',  // Change from empty string to default value '5'
         shedule: '',
       }
 
@@ -358,10 +358,10 @@ const ProductAdding: React.FC = () => {
                       <FormItem>
                         <FormLabel>Description</FormLabel>
                         <FormControl>
-                          <Textarea
-                            placeholder='Enter product description'
-                            className='resize-none'
-                            {...field}
+                          <Textarea 
+                            placeholder="Enter product description"
+                            className="resize-none"
+                            {...field} 
                           />
                         </FormControl>
                         <FormMessage />
@@ -379,7 +379,7 @@ const ProductAdding: React.FC = () => {
                           <FormControl>
                             <Select
                               onValueChange={field.onChange}
-                              value={field.value || ''}
+                              value={field.value || ""}
                               defaultValue={field.value}
                             >
                               <SelectTrigger>
@@ -416,28 +416,27 @@ const ProductAdding: React.FC = () => {
                           <FormMessage />
                         </FormItem>
                       )}
-                    />{' '}
-                    <FormField
-                      control={form.control}
-                      name='quantity'
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Quantity</FormLabel>
-                          <FormControl>
-                            <Input
-                              type='number'
-                              placeholder='Enter quantity'
-                              {...field}
-                              onChange={(e) => {
-                                const value = e.target.value
-                                field.onChange(value === '' ? 0 : Number(value))
-                              }}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    />  <FormField
+                    control={form.control}
+                    name='quantity'
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Quantity</FormLabel>
+                        <FormControl>
+                          <Input
+                            type='number'
+                            placeholder='Enter quantity'
+                            {...field}
+                            onChange={(e) => {
+                              const value = e.target.value
+                              field.onChange(value === '' ? 0 : Number(value))
+                            }}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
                   </div>
 
                   <div className='grid grid-cols-2 gap-4'>
@@ -451,33 +450,24 @@ const ProductAdding: React.FC = () => {
                             <Select
                               disabled={categoriesLoading}
                               onValueChange={field.onChange}
-                              value={field.value || ''}
+                              value={field.value || ""}
                               defaultValue={field.value}
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder='Select a category' />
                               </SelectTrigger>
                               <SelectContent>
-                                {(categories || [])
-                                  ?.filter((category) => {
-                                    // Check if category exists, has a category property, and that property is a non-empty string
-                                    return (
-                                      category &&
-                                      typeof category.category === 'string' &&
-                                      category.category.trim() !== ''
-                                    )
-                                  })
-                                  .map((category: any) => (
-                                    <SelectItem
-                                      key={category.category_id}
-                                      value={
-                                        category.category ||
-                                        `category_${category.category_id}`
-                                      }
-                                    >
-                                      {category.category}
-                                    </SelectItem>
-                                  ))}
+                                {(categories || [])?.filter(category => {
+                                  // Check if category exists, has a category property, and that property is a non-empty string
+                                  return category && typeof category.category === 'string' && category.category.trim() !== '';
+                                }).map((category: any) => (
+                                  <SelectItem
+                                    key={category.category_id}
+                                    value={category.category || `category_${category.category_id}`}
+                                  >
+                                    {category.category}
+                                  </SelectItem>
+                                ))}
                               </SelectContent>
                             </Select>
                           </FormControl>
@@ -495,32 +485,24 @@ const ProductAdding: React.FC = () => {
                             <Select
                               disabled={brandsLoading}
                               onValueChange={field.onChange}
-                              value={field.value || ''}
+                              value={field.value || ""}
                               defaultValue={field.value}
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder='Select a Manufacturer' />
                               </SelectTrigger>
                               <SelectContent>
-                                {(brands || [])
-                                  ?.filter((brand) => {
-                                    // Check if brand exists, has a brand property, and that property is a non-empty string
-                                    return (
-                                      brand &&
-                                      typeof brand.brand === 'string' &&
-                                      brand.brand.trim() !== ''
-                                    )
-                                  })
-                                  .map((brand: any) => (
-                                    <SelectItem
-                                      key={brand.brand_id}
-                                      value={
-                                        brand.brand || `brand_${brand.brand_id}`
-                                      }
-                                    >
-                                      {brand.brand}
-                                    </SelectItem>
-                                  ))}
+                                {(brands || [])?.filter(brand => {
+                                  // Check if brand exists, has a brand property, and that property is a non-empty string
+                                  return brand && typeof brand.brand === 'string' && brand.brand.trim() !== '';
+                                }).map((brand: any) => (
+                                  <SelectItem
+                                    key={brand.brand_id}
+                                    value={brand.brand || `brand_${brand.brand_id}`}
+                                  >
+                                    {brand.brand}
+                                  </SelectItem>
+                                ))}
                               </SelectContent>
                             </Select>
                           </FormControl>
@@ -554,32 +536,24 @@ const ProductAdding: React.FC = () => {
                             <Select
                               disabled={unitsLoading}
                               onValueChange={field.onChange}
-                              value={field.value || ''}
+                              value={field.value || ""}
                               defaultValue={field.value}
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder='Select a Pack' />
                               </SelectTrigger>
                               <SelectContent>
-                                {(units || [])
-                                  ?.filter((unit) => {
-                                    // Check if unit exists, has a unit property, and that property is a non-empty string
-                                    return (
-                                      unit &&
-                                      typeof unit.unit === 'string' &&
-                                      unit.unit.trim() !== ''
-                                    )
-                                  })
-                                  .map((unit: any) => (
-                                    <SelectItem
-                                      key={unit.unit_id}
-                                      value={
-                                        unit.unit || `unit_${unit.unit_id}`
-                                      }
-                                    >
-                                      {unit.unit}
-                                    </SelectItem>
-                                  ))}
+                                {(units || [])?.filter(unit => {
+                                  // Check if unit exists, has a unit property, and that property is a non-empty string
+                                  return unit && typeof unit.unit === 'string' && unit.unit.trim() !== '';
+                                }).map((unit: any) => (
+                                  <SelectItem
+                                    key={unit.unit_id}
+                                    value={unit.unit || `unit_${unit.unit_id}`}
+                                  >
+                                    {unit.unit}
+                                  </SelectItem>
+                                ))}
                               </SelectContent>
                             </Select>
                           </FormControl>
@@ -636,13 +610,37 @@ const ProductAdding: React.FC = () => {
                           <Popover>
                             <PopoverTrigger asChild>
                               <FormControl>
-                                <Input
-                                  type='date'
-                                  className='border-auto/20 bg-white/10 text-auto focus:border-violet-400 focus:ring-violet-400'
-                                  {...field}
-                                />
+                                <Button
+                                  variant={'outline'}
+                                  className={cn(
+                                    'w-full pl-3 text-left font-normal',
+                                    !field.value && 'text-muted-foreground'
+                                  )}
+                                >
+                                  {field.value ? (
+                                    format(field.value, 'PPP')
+                                  ) : (
+                                    <span>Pick a date</span>
+                                  )}
+                                  <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                                </Button>
                               </FormControl>
                             </PopoverTrigger>
+                            <PopoverContent
+                              className='w-auto p-0'
+                              align='start'
+                            >
+                              <Calendar
+                                mode='single'
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) =>
+                                  date > new Date() ||
+                                  date < new Date('1900-01-01')
+                                }
+                                initialFocus
+                              />
+                            </PopoverContent>
                           </Popover>
                           <FormMessage />
                         </FormItem>
@@ -657,13 +655,34 @@ const ProductAdding: React.FC = () => {
                           <Popover>
                             <PopoverTrigger asChild>
                               <FormControl>
-                                <Input
-                                  type='date'
-                                  className='border-auto/20 bg-white/10 text-auto focus:border-violet-400 focus:ring-violet-400'
-                                  {...field}
-                                />
+                                <Button
+                                  variant={'outline'}
+                                  className={cn(
+                                    'w-full pl-3 text-left font-normal',
+                                    !field.value && 'text-muted-foreground'
+                                  )}
+                                >
+                                  {field.value ? (
+                                    format(field.value, 'PPP')
+                                  ) : (
+                                    <span>Pick a date</span>
+                                  )}
+                                  <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                                </Button>
                               </FormControl>
                             </PopoverTrigger>
+                            <PopoverContent
+                              className='w-auto p-0'
+                              align='start'
+                            >
+                              <Calendar
+                                mode='single'
+                                selected={field.value}
+                                onSelect={field.onChange}
+                                disabled={(date) => date < new Date()}
+                                initialFocus
+                              />
+                            </PopoverContent>
                           </Popover>
                           <FormMessage />
                         </FormItem>
@@ -679,7 +698,7 @@ const ProductAdding: React.FC = () => {
                         <FormItem>
                           <FormLabel>Shedule</FormLabel>
                           <FormControl>
-                            <Input {...field} />
+                          <Input {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
